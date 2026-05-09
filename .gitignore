@@ -1,36 +1,75 @@
+# =========================
 # Python
+# =========================
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+*.pyd
 
-# Virtual environments
+# =========================
+# Virtual Environments
+# =========================
 venv/
-.env/
 .venv/
+env/
 
-# Flask/SQLite
+# Environment Variables
+.env
+.env.*
+
+# =========================
+# Flask / Database
+# =========================
 instance/*.db
+instance/*.sqlite
+instance/*.sqlite3
 instance/*.db-journal
 instance/*.db-wal
 instance/*.db-shm
 
-# Uploaded/generated files
+# Flask cache/session files
+.flaskenv
+
+# =========================
+# Uploads / Generated Media
+# =========================
 app/static/uploads/
 static/uploads/
 
+# =========================
+# IDE Settings
+# =========================
+.vscode/
+.idea/
+
+# =========================
 # Logs
+# =========================
 *.log
 
-# OS files
-Thumbs.db
-Desktop.ini
+# =========================
+# Testing / Coverage
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
 
-# VS Code
-.vscode/
+# =========================
+# Build Files
+# =========================
+build/
+dist/
+*.egg-info/
 
-# Node (if any)
+# =========================
+# Node (if frontend assets)
+# =========================
 node_modules/
 
-# macOS
+# =========================
+# OS Files
+# =========================
 .DS_Store
-
+Thumbs.db
+Desktop.ini
