@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Flask/SQLite
+instance/*.db
+instance/*.db-journal
+instance/*.db-wal
+instance/*.db-shm
+
+# Uploaded/generated files
+app/static/uploads/
+static/uploads/
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Node (if any)
+node_modules/
+
+# macOS
+.DS_Store
+
