@@ -1,75 +1,109 @@
-# =========================
+# ==================================
 # Python
-# =========================
+# ==================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 *.pyd
+*.pyo
 
-# =========================
+# ==================================
 # Virtual Environments
-# =========================
+# ==================================
 venv/
 .venv/
 env/
+ENV/
 
-# Environment Variables
+# ==================================
+# Environment / Secrets
+# ==================================
 .env
 .env.*
+!.env.example
 
-# =========================
-# Flask / Database
-# =========================
-instance/*.db
-instance/*.sqlite
-instance/*.sqlite3
-instance/*.db-journal
-instance/*.db-wal
-instance/*.db-shm
-
-# Flask cache/session files
+# ==================================
+# Flask / Runtime
+# ==================================
+instance/
 .flaskenv
 
-# =========================
-# Uploads / Generated Media
-# =========================
+# PID / socket / temp files
+*.pid
+*.sock
+*.tmp
+
+# ==================================
+# SQLite / Local Databases
+# ==================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ==================================
+# Uploads / Generated Files
+# ==================================
+uploads/
 app/static/uploads/
 static/uploads/
 
-# =========================
-# IDE Settings
-# =========================
+# ==================================
+# Logs
+# ==================================
+*.log
+logs/
+
+# ==================================
+# Testing / Coverage
+# ==================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+
+# ==================================
+# Build / Packaging
+# ==================================
+build/
+dist/
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
+
+# ==================================
+# Jupyter / Data Science
+# ==================================
+.ipynb_checkpoints/
+
+# ==================================
+# Node / Frontend Assets
+# ==================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==================================
+# IDE
+# ==================================
 .vscode/
 .idea/
 
-# =========================
-# Logs
-# =========================
-*.log
-
-# =========================
-# Testing / Coverage
-# =========================
-.pytest_cache/
-.coverage
-htmlcov/
-
-# =========================
-# Build Files
-# =========================
-build/
-dist/
-*.egg-info/
-
-# =========================
-# Node (if frontend assets)
-# =========================
-node_modules/
-
-# =========================
+# ==================================
 # OS Files
-# =========================
+# ==================================
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# ==================================
+# Git Merge Backup Files
+# ==================================
+*.orig
+*.rej
