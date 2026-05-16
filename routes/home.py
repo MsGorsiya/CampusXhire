@@ -9,4 +9,4 @@ def home():
 
 @home_bp.route("/login")
 def login():
-    return render_template("start/first.html")  
+    return render_template("Start/first.html")  
