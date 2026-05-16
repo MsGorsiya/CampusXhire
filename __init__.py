@@ -1,20 +1,31 @@
+import os
 from flask import Flask
 from app.config.settings import Config
-from app.extensions.db import db, mail   # ✅ use ONLY this db
+from app.extensions.db import db, mail
+
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_object(Config)
-    app.config['SECRET_KEY'] = 'dev-key'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///campusxhire.db'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    # ✅ Initialize extensions
+    app.config["SECRET_KEY"] = os.getenv(
+        "SECRET_KEY",
+        "dev-key"
+    )
+
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
+        "DATABASE_URL",
+        "sqlite:///campusxhire.db"
+    )
+
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    # Initialize extensions
     db.init_app(app)
     mail.init_app(app)
 
-    # ✅ Register blueprints
+    # Register blueprints
     from app.routes.auth import auth_bp
     from app.routes.home import home_bp
     from app.routes.company import company_bp
@@ -32,9 +43,5 @@ def create_app():
     app.register_blueprint(resume_bp)
     app.register_blueprint(video_resume_bp)
     app.register_blueprint(job_bp)
-
-    # ✅ Create tables
-    with app.app_context():
-        db.create_all()
 
     return app
